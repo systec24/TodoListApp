@@ -36,9 +36,11 @@ public class TodoList {
 	}
 
 	public void listAll() {
-		System.out.println("\n[ To-do List ]");
+		System.out.println("\n[전체 목록, 총 " + list.size() + "개]");
+		int i = 1;
 		for (TodoItem myitem : list) {
-			System.out.println("[" + myitem.getTitle() + "] " + myitem.getDesc() + " - " + myitem.getCurrent_date());
+			System.out.println(i + ". [" + myitem.getCategory() + "] " + myitem.getTitle() + " - " + myitem.getDesc() + " - " + myitem.getDueDate() + " - " + myitem.getCurrent_date());
+			i++;
 		}
 		System.out.println();
 	}
@@ -55,6 +57,14 @@ public class TodoList {
 		return list.indexOf(t);
 	}
 
+	public int size() {
+		return list.size();
+	}
+	
+	public TodoItem get(int n) {
+		return list.get(n);
+	}
+	
 	public Boolean isDuplicate(String title) {
 		for (TodoItem item : list) {
 			if (title.equals(item.getTitle())) return true;

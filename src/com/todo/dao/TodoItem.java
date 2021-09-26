@@ -7,23 +7,26 @@ import java.text.SimpleDateFormat;
 public class TodoItem {
     private String title;
     private String desc;
-    private Date current_date;
-    String datePattern = "yyyy/MM/dd kk:mm:ss";
-    String dateString;
+    private String category;
+    private String due_date;
+    private String current_date;
 
 
-    public TodoItem(String title, String desc){
+    public TodoItem(String title, String desc, String category, String due_date){
         this.title=title;
         this.desc=desc;
-        this.current_date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat(datePattern);
-    	dateString = format.format(current_date);
+        this.category = category;
+        this.due_date = due_date;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd kk:mm:ss");
+    	this.current_date = format.format(new Date());
     }
     
-    public TodoItem(String title, String desc, String dateString) {
+    public TodoItem(String title, String desc, String category, String due_date, String current_date) {
     	this.title = title;
     	this.desc = desc;
-    	this.dateString = dateString;
+    	this.category = category;
+        this.due_date = due_date;
+    	this.current_date = current_date;
     }
     
     public String getTitle() {
@@ -41,18 +44,33 @@ public class TodoItem {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+    
+    public String getCategory() {
+    	return category;
+    }
 
+    public void setCategory(String category) {
+    	this.category = category;
+    }
+    
+    public String getDueDate() {
+    	return due_date;
+    }
+
+    public void setDueDate(String due_date) {
+    	this.due_date = due_date;
+    }
+    
     public String getCurrent_date() {
-        return dateString;
+        return current_date;
     }
 
     public void setCurrent_date(Date current_date) {
-        this.current_date = current_date;
-        SimpleDateFormat format = new SimpleDateFormat(datePattern);
-    	dateString = format.format(current_date);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd kk:mm:ss");
+    	this.current_date = format.format(new Date());
     }
     
     public String toSaveString() {
-    	return title + "##" + desc + "##" + dateString + "\n";
+    	return category + "##" + title + "##" + desc + "##" + due_date + "##" + current_date + "\n";
     }
 }

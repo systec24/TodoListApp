@@ -4,19 +4,22 @@ public class Menu {
     public static void displaymenu()
     {
         System.out.println();
-        System.out.println("================ To-do List ================");
-        System.out.println("add -  Add a new item");
-        System.out.println("del -  Delete an existing item");
-        System.out.println("edit - Update an item");
-        System.out.println("ls - List all items");
-        System.out.println("ls_name_asc - Sort the list by name");
-        System.out.println("ls_name_desc - Sort the list by name");
-        System.out.println("ls_date - Sort the list by date");
-        System.out.println("help - Shows the menu");
-        System.out.println("exit - Exit (Or press escape key to exit)");
+        System.out.println("< ToDoList 관리 명령어 사용법 >");
+        System.out.println("add - 항목 추가");
+        System.out.println("del - 항목 삭제");
+        System.out.println("edit - 항목 삭제");
+        System.out.println("ls - 전체 목록");
+        System.out.println("ls_cate - 카테고리 목록");
+        System.out.println("find <검색어> - 항목 검색");
+        System.out.println("find_cate <검색어> - 카테고리 검색");
+        System.out.println("ls_name_asc - 제목순 정렬");
+        System.out.println("ls_name_desc - 제목역순 정렬");
+        System.out.println("ls_date - 날짜순 정렬");
+        System.out.println("ls_date_desc - 최신순 정렬");
+        System.out.println("exit - 정렬");
     }
     
     public static void prompt() {
-    	System.out.print("Enter your choice > ");
+    	System.out.print("Command > ");
     }
 }
